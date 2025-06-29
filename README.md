@@ -25,6 +25,24 @@ L’objectif est de prédire la teneur en acide p-coumarique à partir des spect
 - Calcul des prédictions dans une étape `DATA` via produit matriciel
 - Calcul séparé des erreurs de prédiction
 
+## 💬 Retour d'expérience : SAS pour la chimiométrie
+
+Ce projet a été réalisé comme une tentative de modélisation PLS dans SAS, à partir de données spectroscopiques issues de mon travail de thèse.
+
+Malgré la disponibilité de `PROC PLS`, j'ai rencontré des **limitations majeures** :
+- ⚠️ Impossible de prédire sur un set de test externe
+- ⚠️ Pas de persistance du modèle (score / store absents)
+- ⚠️ `CVPRED` instable selon les options de validation croisée
+- ⚠️ Calculs d'erreur (RMSE, MAE) impossibles sans manipulation manuelle
+
+👉 Le modèle a été **entraîné, évalué et documenté entièrement dans SAS**, mais au prix d'une grande complexité et d'une faible reproductibilité.
+
+> 🔧 Résultats obtenus sur les données d'entraînement :
+- R² = **0.98**
+- RMSE (entraînement) ≈ [valeur exacte à insérer]
+- RMSE (CV) ≈ [valeur exacte à insérer]
+
+
 ### 💡 Recommandation :
 Pour toute utilisation sérieuse de la chimiométrie :
 - Utiliser Python (`scikit-learn` – `PLSRegression`)
